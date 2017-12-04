@@ -1,18 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net461</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Abstract\" />
-    <Folder Include="DTO\" />
     <Folder Include="Mappings\" />
+    <Folder Include="Common\" />
+    <Folder Include="RepositoryInterfaces\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="6.2.0" />
-    <PackageReference Include="EntityFramework" Version="6.2.0" />
+    <PackageReference Include="AutoMapper" Version="6.2.1" />
   </ItemGroup>
 
 </Project>

@@ -22,14 +22,14 @@ namespace DR.Core.Concrete
         {
             if (!isDisposed && disposing)
             {
-                DisposeCore();
+                DisposeCustomObjects();
             }
 
             isDisposed = true;
         }
 
-        // Ovveride this to dispose custom objects
-        protected virtual void DisposeCore()
+        // Overide this to dispose custom objects
+        protected virtual void DisposeCustomObjects()
         {
         }
     }
