@@ -1,6 +1,6 @@
 ﻿using DR.Core.Abstract;
+using DR.Core.Entities;
 using DR.Data.Configurations;
-using DR.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -25,6 +25,11 @@ namespace DR.Data
         public DbSet<RelationshipGroup> RelationshipGroups { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<LifeEvent> LifeEvents { get; set; }
+
+        public virtual void Commit()
+        {
+            base.SaveChanges();
+        }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

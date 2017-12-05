@@ -1,4 +1,4 @@
-﻿using DR.Data.Entities;
+﻿using DR.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
@@ -22,7 +22,8 @@ namespace DR.Data.Configurations
             Property(g => g.EventDateYear).IsOptional();
             Property<DateTime>(g => g.CreatedDate).IsRequired();
             Property<DateTime>(g => g.LastUpdated).IsConcurrencyToken();
-
+            //Property(g => g.CreatedByUserId).IsRequired();
+            //Property(g => g.RelationshipGroupId).IsOptional();
 
             HasRequired(p => p.CreatedByUser).WithMany(u => u.LifeEvents)
                               .HasForeignKey(fk => fk.CreatedByUserId);

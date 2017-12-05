@@ -1,6 +1,6 @@
 namespace DR.Data.Migrations
 {
-    using DR.Data.Entities;
+    using DR.Core.Entities;
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;

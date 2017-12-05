@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace DR.Data.Entities
+namespace DR.Core.Entities
 {
     [DataContract]
     public enum UserRole
