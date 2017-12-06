@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using DR.Core.Entities;
 using System.Linq;
 using Moq;
+using DR.Data;
 namespace DR.Tests.TestRepositories
 {
     [TestClass]
@@ -24,14 +25,27 @@ namespace DR.Tests.TestRepositories
             container = new Container();
 
             // 2. Configure the container (register)
-            container.Register<IRelationshipGroupsRepository, RelationshipGroupsRepository>(Lifestyle.Transient);
+            //container.Register<IRelationshipGroupsRepository, RelationshipGroupsRepository>(Lifestyle.Transient);
             container.Register<RepositoryTestClass>();
+
+            container.Register<IDataRepositoryFactory, DataRepositoryFactory>();
+
+            DataBootStraper.BootStrap(container);
 
             // 3. Verify your configuration
             container.Verify();
 
            
         }
+
+        [TestMethod]
+        public void Test_DataRepositoryFactory_RelationshipGroup()
+        {
+            var userRepoObj = container.GetInstance<IDataRepositoryFactory>().GetDataRepository<IUsersRepository>();
+            Assert.IsNotNull(userRepoObj);
+
+        }
+
 
         [TestMethod]
         public void Test_Instantiate_Repository()
@@ -112,23 +126,25 @@ namespace DR.Tests.TestRepositories
            
         }
 
+       
+        
         public  class RepositoryTestClass
         {
-            private readonly IRelationshipGroupsRepository _gGroupsRepository;
+            private readonly IDataRepositoryFactory _repositoryFactory;
 
             //Out of box more than one public constructor won't work with simpleinjector
             //public RepositoryTestClass()
             //{
                 
             //}
-            public RepositoryTestClass(IRelationshipGroupsRepository gGroupsRepository)
+            public RepositoryTestClass(IDataRepositoryFactory repositoryFactory)
             {
-                _gGroupsRepository = gGroupsRepository;
+                _repositoryFactory = repositoryFactory;
             }
 
             public IEnumerable<RelationshipGroup> GetRelationshipGroups()
             {
-                return _gGroupsRepository.Get();
+                return _repositoryFactory.GetDataRepository<IRelationshipGroupsRepository>().Get();
             }
         }
     }

@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace DR.Core.Abstract
 {
+    //Abstract data repository factory
     public interface IDataRepositoryFactory
     {
-        
+        T GetDataRepository<T>() where T : IDataRepository;
     }
 }
