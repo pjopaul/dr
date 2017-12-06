@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DR.Core.Abstract;
+using DR.Core.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DR.Data
 {
-    public abstract class DataRepositoryBase<T, U> : IDataRepository<T>
+    public abstract class DataRepositoryBase<T, U> :  IDataRepository<T>
         where T : class, IEntityId, new()
         where U : DbContext, new()
     {
