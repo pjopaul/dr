@@ -63,10 +63,13 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestRepositories\RelationshipGroupsTest.cs" />
+    <Compile Include="TestManagers\TestRelationshipGroupManager.cs" />
+    <Compile Include="TestRepositories\TestRelationshipGroupsRepoTest.cs" />
+    <Compile Include="TestServiceHosts\TestRelationshipGroupHost.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -83,7 +86,16 @@
       <Project>{ff5f254e-f32c-4fb4-bc7c-3993dbea996f}</Project>
       <Name>DR.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DR.Services.Contracts\DR.Services.Contracts.csproj">
+      <Project>{dc5dd56e-779f-4538-acf9-0d2ba181ca4f}</Project>
+      <Name>DR.Services.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DR.Services.Managers\DR.Services.Managers.csproj">
+      <Project>{a2c3afe0-cfc6-4b85-9883-0e884671df44}</Project>
+      <Name>DR.Services.Managers</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

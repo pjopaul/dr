@@ -22,7 +22,7 @@ namespace DR.Data.Migrations
             //  to avoid creating duplicate seed data.
 
             context.Users.AddOrUpdate(
-               new User() {UserId=1, LoginName = "Admin", Password = "admin", UserRoleId = UserRole.Admin,
+               new User() {UserId=1, LoginName = "Admin", Password = "admin", UserRoleId = UserRole.Admin,IsActive = true ,
                             RelationshipGroups=new List<RelationshipGroup>() {
                        new RelationshipGroup(){RelationshipGroupId=1, GroupDesc="Friends",CreatedByUserId =1 },
                        new RelationshipGroup(){RelationshipGroupId=2, GroupDesc="Family",CreatedByUserId =1 },
@@ -32,7 +32,7 @@ namespace DR.Data.Migrations
                        new RelationshipGroup(){RelationshipGroupId=6, GroupDesc="College",CreatedByUserId =1 }
                    }
                },
-               new User() { UserId = 2, LoginName = "User", Password = "user", UserRoleId = UserRole.User }
+               new User() { UserId = 2, LoginName = "User", Password = "user", UserRoleId = UserRole.User, IsActive = true }
 
                );
 

@@ -10,6 +10,9 @@ namespace DR.Core.RepositoryInterfaces
 {
     public interface IUsersRepository : IDataRepository<User>
     {
-        
+        User Get(string userName);
+
+       // User Authenticate(string userName, string password);
+
     }
 }

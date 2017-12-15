@@ -10,6 +10,8 @@ namespace DR.Data.Repositories
 {
     public class LifeEventsRepository : DataRepositoryBase<LifeEvent>, ILifeEventsRepository
     {
+        
+
         protected override LifeEvent AddEntity(LifeEventsDBContext dbContext, LifeEvent entity)
         {
             return dbContext.LifeEvents.Add(entity);
@@ -34,6 +36,17 @@ namespace DR.Data.Repositories
             return (from e in dbContext.LifeEvents
                     where e.LifeEventId == entity.LifeEventId
                     select e).FirstOrDefault();
+        }
+
+        /*Custom methods for this repo */
+        public IEnumerable<LifeEvent> GetLifeEventsCreatedByUser(int userId)
+        {
+            using (LifeEventsDBContext dbContext = new LifeEventsDBContext())
+            {
+                return (from e in dbContext.LifeEvents
+                        where e.CreatedByUserId == userId
+                        select e).ToList();
+            }
         }
     }
 }

@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace DR.Core.RepositoryInterfaces
 {
-    public interface ILifeEventsRepository: IDataRepository<LifeEvent>
+    public interface ILifeEventsRepository : IDataRepository<LifeEvent>
     {
-        
+        IEnumerable<LifeEvent> GetLifeEventsCreatedByUser(int userId);
     }
 }

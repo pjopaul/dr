@@ -6,11 +6,10 @@
 
   <ItemGroup>
     <Folder Include="Mappings\" />
-    <Folder Include="Common\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="6.2.1" />
+    <PackageReference Include="AutoMapper" Version="6.2.2" />
     <PackageReference Include="SimpleInjector" Version="4.0.12" />
   </ItemGroup>
 

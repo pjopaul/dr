@@ -1,6 +1,7 @@
 ﻿using SimpleInjector;
 using DR.Data.Repositories;
 using DR.Core.RepositoryInterfaces;
+using DR.Core.Abstract;
 
 namespace DR.Data
 {
@@ -13,7 +14,7 @@ namespace DR.Data
             container.Register<IRelationshipGroupsRepository, RelationshipGroupsRepository>();
             container.Register<IUsersRepository, UsersRepository>();
             container.Register<ILifeEventsRepository, LifeEventsRepository>();
-
+            container.Register<IDataRepositoryFactory, DataRepositoryFactory>();
             //var repositoryAssembly = typeof(RelationshipGroupsRepository).Assembly;
 
             //var registrations =

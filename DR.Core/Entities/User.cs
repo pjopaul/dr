@@ -1,5 +1,6 @@
 ﻿using DR.Core.Abstract;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 
 namespace DR.Core.Entities
@@ -22,13 +23,17 @@ namespace DR.Core.Entities
         [DataMember]
         public string Password { get; set; }
         [DataMember]
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
         [DataMember]
-        public UserRole UserRoleId { get; set; }
+        public UserRole UserRoleId { get; set; } = UserRole.User;
 
-        public ICollection<LifeEvent> LifeEvents { get; set; }
-        public ICollection<RelationshipGroup> RelationshipGroups { get; set; }
+        public ICollection<LifeEvent> LifeEvents { get; set; } = new Collection<LifeEvent>();
+        public ICollection<RelationshipGroup> RelationshipGroups { get; set; } = new Collection<RelationshipGroup>();
 
+        public User()
+        {
+            
+        }
         int IEntityId.EntityId
         {
             get { return UserId; }

@@ -71,10 +71,9 @@ namespace DR.Data
         {
             using (U dbContext = new U())
             {
-                //TODO:Test update
                 T exitingEntity = UpdateEntity(dbContext, entity);
-                Mapper.Map(entity, exitingEntity);
-
+                // Mapper.Map<T,T>(entity, exitingEntity);
+                dbContext.Entry(exitingEntity).CurrentValues.SetValues(entity);
                 dbContext.SaveChanges();
                 return exitingEntity;
             }
