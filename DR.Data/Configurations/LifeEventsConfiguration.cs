@@ -21,7 +21,7 @@ namespace DR.Data.Configurations
             Property(g => g.EventDateMonth).IsRequired();
             Property(g => g.EventDateYear).IsOptional();
             Property<DateTime>(g => g.CreatedDate).IsRequired();
-            Property<DateTime>(g => g.LastUpdated).IsConcurrencyToken();
+            Property(g => g.Version).IsConcurrencyToken();
             //Property(g => g.CreatedByUserId).IsRequired();
             //Property(g => g.RelationshipGroupId).IsOptional();
 

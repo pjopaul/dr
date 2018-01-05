@@ -38,17 +38,7 @@ namespace DR.Core.Entities
         [DataMember]
         public int? EventDateYear { get; set; }
 
-        [DataMember]
-        public int CreatedByUserId { get; set; }
-        [DataMember]
-        public User CreatedByUser { get; set; }
-
-        [DataMember]
-        public DateTime CreatedDate { get; set; }
-
-        [DataMember]
-        public DateTime LastUpdated { get; set; }
-
+       
         int IEntityId.EntityId
         {
             get { return LifeEventId; }

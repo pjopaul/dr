@@ -12,7 +12,7 @@ namespace DR.Data.Configurations
         {
             ToTable("RelationshipGroups");
             HasKey(pk => pk.RelationshipGroupId);
-
+            Property(g => g.Version).IsConcurrencyToken();
             HasRequired(p => p.CreatedByUser).WithMany(u => u.RelationshipGroups)
                               .HasForeignKey(fk => fk.CreatedByUserId);
 

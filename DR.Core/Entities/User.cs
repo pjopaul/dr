@@ -22,8 +22,7 @@ namespace DR.Core.Entities
         public string LoginName { get; set; }
         [DataMember]
         public string Password { get; set; }
-        [DataMember]
-        public bool IsActive { get; set; } = true;
+        
         [DataMember]
         public UserRole UserRoleId { get; set; } = UserRole.User;
 

@@ -11,10 +11,7 @@ namespace DR.Core.Entities
         public int RelationshipGroupId { get; set; }
         [DataMember]
         public string GroupDesc { get; set; }
-        [DataMember]
-        public int CreatedByUserId { get; set; }
-        [DataMember]
-        public virtual User CreatedByUser { get; set; }
+       
 
         public ICollection<LifeEvent> LifeEvents { get; set; }
 

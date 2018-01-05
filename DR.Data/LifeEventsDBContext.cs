@@ -7,6 +7,7 @@ using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Runtime.Serialization;
 using System.Text;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace DR.Data
 {

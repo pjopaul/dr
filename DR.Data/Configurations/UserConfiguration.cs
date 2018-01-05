@@ -12,7 +12,7 @@ namespace DR.Data.Configurations
         {
             ToTable("Users");
             HasKey(pk => pk.UserId);
-            
+            Property(g => g.Version).IsConcurrencyToken();
 
         }
     }
